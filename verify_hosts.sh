@@ -1,6 +1,16 @@
 #!/bin/bash
 
-HOSTS_FILE="$HOME/etc/hosts"
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <hosts_file>"
+    exit 1
+fi
+
+HOSTS_FILE="$1"
+
+if [ ! -f "$HOSTS_FILE" ]; then
+    echo "Error: File '$HOSTS_FILE' does not exist."
+    exit 1
+fi
 
 verify-IP() {
     local host_name="$1"
