@@ -41,3 +41,4 @@ while read -r ip name aliases; do
 
     verify-IP "$name" "$ip"
 done < "$HOSTS_FILE"
+echo "Modified by Student A"
